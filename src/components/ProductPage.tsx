@@ -30,7 +30,7 @@ const ProductPage = ({ route }: any) => {
           <Box className="p-4 flex flex-col justify-start items-start gap-4">
             <Text size="3xl" bold>{`Product ${id + 1}`}</Text>
             <Text className="text-lg">{description}</Text>
-            <Box className="bg-background-200 p-3 rounded-md">
+            <Box className="w-full bg-background-200 p-3 rounded-md">
               <CountDownTimer endDate={endDate} textClassName="text-xl font-bold" />
               <Text className="mt-5 text-2xl flex items-center justify-center text-center">
                 Last Bid:{' '}
@@ -44,7 +44,7 @@ const ProductPage = ({ route }: any) => {
             <ThemedBtn
               variant="solid"
               text={`Bid ${lastBid + 50}$`}
-              className="rounded-full mt-5"
+              className="w-full rounded-full mt-5"
               textClassName="text-2xl"
               style={{ height: 50 }}
               isDisabled={timeEnded}

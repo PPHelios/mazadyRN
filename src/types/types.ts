@@ -7,3 +7,12 @@ export interface ItemProps {
   lastBid: number;
   description: string;
 }
+
+export interface ImageData {
+  uri: string;
+  id: string;
+  key: string;
+  base64: string;
+  fileSize: number;
+  //
+}

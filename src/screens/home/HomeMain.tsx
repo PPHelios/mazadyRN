@@ -26,16 +26,17 @@ const HomeMain = () => {
               style={{
                 borderColor: colors.orange[500],
               }}
-              className="px-5 py-2 flex-row justify-start items-center rounded-full border-2"
+              className="px-5 py-2 flex-row justify-start items-center rounded-full border-2 gap-5"
             >
               <Search size={28} color={isDarkMode ? 'white' : colors.orange[500]} />
+              <Text size="lg">Search on mazady</Text>
             </Box>
           </TouchableOpacity>
           <Text className="text-xl font-bold">Featured:</Text>
           <FlatList
             horizontal
             data={projects}
-            renderItem={({ item }) => <Product key={item.link} {...item}  />}
+            renderItem={({ item }) => <Product key={item.link} {...item} />}
             keyExtractor={(item) => item.title}
           />
           <Box style={{ backgroundColor: colors.blue[400] }} className=" w-full px-2 py-4 mt-5">

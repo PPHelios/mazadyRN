@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCart } from 'lucide-react-native';
+import { Bell } from 'lucide-react-native';
 import { Box } from './ui/box';
 import { useColorScheme } from 'nativewind';
 import colors from 'tailwindcss/colors';
@@ -14,7 +14,7 @@ const TopBar = () => {
         source={require('../../assets/images/mazady.gif')}
         style={{ width: 150, height: 40 }}
       />
-      <ShoppingCart size={28} color={isDarkMode ? colors.orange[400] : colors.orange[500]} />
+      <Bell size={28} color={isDarkMode ? colors.orange[400] : colors.orange[500]} />
     </Box>
   );
 };

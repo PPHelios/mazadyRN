@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SettingsMain from '@/screens/settings/SettingsMain';
 import HomeMain from '@/screens/home/HomeMain';
-import CategoriesMain from '@/screens/categories/CategoriesMain';
+import AddItem from '@/screens/AddItem/AddItem';
 import { Text } from '../ui/text';
-import { Home, Search, Settings } from 'lucide-react-native';
+import { Home, PlusCircle, Settings } from 'lucide-react-native';
 import colors from 'tailwindcss/colors';
 
 const Tab = createBottomTabNavigator();
@@ -40,12 +40,12 @@ export default function Tabs() {
       initialRouteName="Home"
     >
       <Tab.Screen
-        name="Categories"
-        component={CategoriesMain}
+        name="AddItem"
+        component={AddItem}
         options={{
-          title: 'Categories',
+          title: 'Add Item',
           tabBarIcon: ({ focused }) => (
-            <Search size={20} color={focused ? colors.white : colors.black} />
+            <PlusCircle size={20} color={focused ? colors.white : colors.black} />
           ),
         }}
       />
