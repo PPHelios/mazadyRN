@@ -26,13 +26,8 @@ import { Button, ButtonSpinner, ButtonText } from '@/components/ui/button';
 import { Image } from 'react-native';
 import colors from 'tailwindcss/colors';
 const signInSchema = z.object({
-  phoneNumber: z.coerce
-    .string()
-    .trim()
-    .min(1, 'fieldRequired')
-    .min(5, 'fieldMin')
-    .max(20, 'fieldMax'),
-  password: z.string().trim().min(1, 'fieldRequired').min(6, 'fieldMin').max(20, 'fieldMax'),
+  phoneNumber: z.coerce.string().trim().min(1).min(5).max(20),
+  password: z.string().trim().min(6).max(20),
 });
 
 type SignInSchemaType = z.infer<typeof signInSchema>;
@@ -70,7 +65,7 @@ const LoginPage = () => {
         ),
       );
 
-      const transValues = { fullNumber, password: values.password.trim() };
+      // const transValues = { fullNumber, password: values.password.trim() };
       const login = await delayedResolve();
       if (login) {
         setLoading(false);
@@ -183,11 +178,17 @@ const LoginPage = () => {
                       className="h-16"
                       returnKeyType="done"
                       secureTextEntry={!showPassword}
-                          autoCapitalize='none'
-                        />
-                        <InputSlot className='px-5' onPress={() => setShowPassword(!showPassword)}>
-                          <InputIcon>{showPassword?<EyeOffIcon size={20} color={isDarkMode?'white':'black'} />:<EyeIcon size={20} color={isDarkMode?'white':'black'}/>}</InputIcon>
-                        </InputSlot>
+                      autoCapitalize="none"
+                    />
+                    <InputSlot className="px-5" onPress={() => setShowPassword(!showPassword)}>
+                      <InputIcon>
+                        {showPassword ? (
+                          <EyeOffIcon size={20} color={isDarkMode ? 'white' : 'black'} />
+                        ) : (
+                          <EyeIcon size={20} color={isDarkMode ? 'white' : 'black'} />
+                        )}
+                      </InputIcon>
+                    </InputSlot>
                   </Input>
                   <FormControlHelper>
                     <FormControlHelperText>Must be at least 6 characters.</FormControlHelperText>
@@ -216,7 +217,7 @@ const LoginPage = () => {
                       marginStart: 'auto',
                     }}
                   >
-                    Already a member? Signin
+                    Don&apos;t have an account ? Sign up
                   </Text>
                 )}
               </Pressable>
